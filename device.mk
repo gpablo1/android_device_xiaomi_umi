@@ -75,3 +75,18 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # Inherit from vendor blobs
 $(call inherit-product, vendor/xiaomi/umi/umi-vendor.mk)
+
+# Call HyperOS Gallery,GalleryEditor,VideoPlayer
+$(call inherit-product-if-exists, vendor/xiaomi/miui-apps/miui-apps.mk)
+
+# Viper4AndroidFX
+$(call inherit-product-if-exists, packages/apps/ViPER4AndroidFX/config.mk)
+
+# Camera
+$(call inherit-product-if-exists, vendor/xiaomi/camera/miuicamera.mk)
+
+# Miuiapps
+$(call inherit-product, vendor/xiaomi/miuiapps/config.mk)
+
+# GcamGo
+$(call inherit-product-if-exists, vendor/gcgop/config.mk)
