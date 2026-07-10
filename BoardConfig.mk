@@ -14,6 +14,7 @@ TARGET_SCREEN_DENSITY := 440
 
 # Init
 $(call soong_config_set,libinit,vendor_init_lib,//$(DEVICE_PATH):init_xiaomi_umi)
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):init_xiaomi_umi
 
 # Kernel
 TARGET_KERNEL_CONFIG += vendor/xiaomi/umi.config
