@@ -77,6 +77,29 @@ PRODUCT_COPY_FILES += \
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
 
+# Haptic feedback
+PRODUCT_VENDOR_PROPERTIES += \
+    sys.haptic.down.weak=0 \
+    sys.haptic.down.normal=2 \
+    sys.haptic.down.strong=4 \
+    sys.haptic.down=3,2 \
+    sys.haptic.tap.normal=3,2 \
+    sys.haptic.tap.light=3,1 \
+    sys.haptic.flick=3,2 \
+    sys.haptic.flick.light=3,1 \
+    sys.haptic.switch=3,1 \
+    sys.haptic.mesh.heavy=3,2 \
+    sys.haptic.mesh.normal=3,1 \
+    sys.haptic.mesh.light=3,0 \
+    sys.haptic.long.press=3,2 \
+    sys.haptic.popup.normal=3,2 \
+    sys.haptic.popup.light=3,1 \
+    sys.haptic.pickup=3,2 \
+    sys.haptic.scroll.edge=3,0 \
+    sys.haptic.trigger.drawer=3,0 \
+    sys.haptic.hold=3,2 \
+    sys.haptic.runin=13
+
 # Inherit from vendor blobs
 $(call inherit-product, vendor/xiaomi/umi/umi-vendor.mk)
 
@@ -87,7 +110,8 @@ $(call inherit-product-if-exists, vendor/xiaomi/miui-apps/miui-apps.mk)
 $(call inherit-product-if-exists, packages/apps/ViPER4AndroidFX/config.mk)
 
 # Camera
-$(call inherit-product-if-exists, vendor/xiaomi/miuicamera-sm8250/miuicamera.mk)
+#$(call inherit-product-if-exists, vendor/xiaomi/miuicamera-sm8250/miuicamera.mk)
+$(call inherit-product-if-exists, device/xiaomi/camera/miuicamera.mk)
 
 # Miuiapps
 $(call inherit-product, vendor/xiaomi/miuiapps/config.mk)
