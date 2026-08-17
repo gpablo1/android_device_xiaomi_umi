@@ -80,3 +80,7 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 	
 PRODUCT_SYSTEM_PROPERTIES += \
     ro.build.product=umi
+
+# MiuiCamera: run Mialgo without remote MiPostProc service
+PRODUCT_VENDOR_PROPERTIES += \
+    persist.vendor.camera.mialgoengine.bypass=1
