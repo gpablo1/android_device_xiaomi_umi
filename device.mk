@@ -117,3 +117,7 @@ $(call inherit-product, vendor/xiaomi/miuiapps/config.mk)
 
 # GcamGo
 $(call inherit-product-if-exists, vendor/gcgop/config.mk)
+
+# Dex2oat: improve SystemServer AOT compilation
+PRODUCT_SYSTEM_PROPERTIES += \
+    dalvik.vm.systemservercompilerfilter=speed
