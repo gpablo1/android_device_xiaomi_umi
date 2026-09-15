@@ -121,3 +121,9 @@ $(call inherit-product-if-exists, vendor/gcgop/config.mk)
 # Dex2oat: improve SystemServer AOT compilation
 PRODUCT_SYSTEM_PROPERTIES += \
     dalvik.vm.systemservercompilerfilter=speed
+
+# Xiaomi Features: UMI stock call-volume boost (opt-in).
+ifeq ($(filter packages/apps/XiaomiParts,$(PRODUCT_SOONG_NAMESPACES)),)
+PRODUCT_SOONG_NAMESPACES += packages/apps/XiaomiParts
+endif
+PRODUCT_PACKAGES += UmiVoiceBoost
