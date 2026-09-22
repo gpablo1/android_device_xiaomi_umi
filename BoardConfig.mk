@@ -15,6 +15,13 @@ TARGET_SCREEN_DENSITY := 440
 # Kernel
 TARGET_KERNEL_CONFIG += vendor/xiaomi/umi.config
 
+# Optional ReSukiSU kernel root variant
+ifeq ($(WITH_RESUKISU),true)
+TARGET_KERNEL_CONFIG += vendor/xiaomi/umi-resukisu.config
+else
+TARGET_KERNEL_CONFIG += vendor/xiaomi/umi-no-resukisu.config
+endif
+
 # OTA assert
 TARGET_OTA_ASSERT_DEVICE := umi
 
