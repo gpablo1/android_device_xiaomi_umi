@@ -15,8 +15,10 @@ TARGET_SCREEN_DENSITY := 440
 # Kernel
 TARGET_KERNEL_CONFIG += vendor/xiaomi/umi.config
 
-# Optional ReSukiSU kernel root variant
-ifeq ($(WITH_RESUKISU),true)
+# Optional ReSukiSU kernel root variants
+ifeq ($(WITH_RESUKISU_SUSFS),true)
+TARGET_KERNEL_CONFIG += vendor/xiaomi/umi-resukisu-susfs.config
+else ifeq ($(WITH_RESUKISU),true)
 TARGET_KERNEL_CONFIG += vendor/xiaomi/umi-resukisu.config
 else
 TARGET_KERNEL_CONFIG += vendor/xiaomi/umi-no-resukisu.config
