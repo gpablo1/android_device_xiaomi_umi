@@ -15,13 +15,21 @@ TARGET_SCREEN_DENSITY := 440
 # Kernel
 TARGET_KERNEL_CONFIG += vendor/xiaomi/umi.config
 
-# Optional ReSukiSU kernel root variants
-ifeq ($(WITH_RESUKISU_SUSFS),true)
+# Optional kernel root variants
+ifeq ($(WITH_SUKISU),true)
+TARGET_KERNEL_SOURCE := kernel/xiaomi/sm8250_sukisu
+TARGET_KERNEL_CONFIG += vendor/xiaomi/umi-sukisu-susfs.config
+else ifeq ($(WITH_RESUKISU_SUSFS),true)
 TARGET_KERNEL_CONFIG += vendor/xiaomi/umi-resukisu-susfs.config
 else ifeq ($(WITH_RESUKISU),true)
 TARGET_KERNEL_CONFIG += vendor/xiaomi/umi-resukisu.config
 else
 TARGET_KERNEL_CONFIG += vendor/xiaomi/umi-no-resukisu.config
+endif
+
+# Optional kernel build parallelism
+ifneq ($(KERNEL_JOBS),)
+TARGET_KERNEL_ADDITIONAL_FLAGS += -j$(KERNEL_JOBS)
 endif
 
 # OTA assert
