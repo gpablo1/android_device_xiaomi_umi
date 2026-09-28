@@ -16,10 +16,7 @@ TARGET_SCREEN_DENSITY := 440
 TARGET_KERNEL_CONFIG += vendor/xiaomi/umi.config
 
 # Optional kernel root variants
-ifeq ($(WITH_SUKISU),true)
-TARGET_KERNEL_SOURCE := kernel/xiaomi/sm8250_sukisu
-TARGET_KERNEL_CONFIG += vendor/xiaomi/umi-sukisu-susfs.config
-else ifeq ($(WITH_RESUKISU_SUSFS),true)
+ifeq ($(WITH_RESUKISU_SUSFS),true)
 TARGET_KERNEL_CONFIG += vendor/xiaomi/umi-resukisu-susfs.config
 else ifeq ($(WITH_RESUKISU),true)
 TARGET_KERNEL_CONFIG += vendor/xiaomi/umi-resukisu.config
